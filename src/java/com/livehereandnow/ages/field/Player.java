@@ -230,27 +230,26 @@ public class Player {
                 return 步兵區;
             case Sector.已完成的奇蹟:
                 return 已完成的奇蹟;
-            case Sector.劇院區:
+//                
+//                
+            case Sector.劇院區: // 9
                 return 劇院區;
-            case Sector.圖書館區:
+            case Sector.圖書館區: //10
                 return 圖書館區;
-            case Sector.殖民領土區:
+            case Sector.殖民領土區://11
                 return 殖民領土區;
-                
-            case Sector.炮兵區:
+            case Sector.炮兵區://12
                 return 炮兵區;
-            case Sector.特殊科技區:
+            case Sector.特殊科技區://13
                 return 特殊科技區;
-            case Sector.競技場區:
+            case Sector.競技場區://14
                 return 競技場區;
-            case Sector.飛機區:
+            case Sector.飛機區://15
                 return 飛機區;
-            case Sector.騎兵區:
+            case Sector.騎兵區://16
                 return 騎兵區;
-            case Sector.未分類區:
+            case Sector.未分類區://17
                 return 未分類區;
-                
-                
 
             default:
                 return null;

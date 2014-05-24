@@ -34,7 +34,21 @@ public class AgesEngine {
     private Player player;
 //    private AgesCard card;
     private String debug;
-
+  public Player getPlayer(int player){
+        switch (player){
+            case 1:
+                return field.getP1();
+            case 2:
+                return field.getP2();
+            default:
+                return new Player("UNKNOWN");
+                        
+        }
+    }
+    
+    public List<AgesCard> getPlayerSector(int player, int sector){
+        return getPlayer(player).getSector(sector);
+    }
     public String getDebug() {
         return debug;
     }
