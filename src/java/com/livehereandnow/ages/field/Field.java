@@ -43,7 +43,22 @@ public class Field {
     public List<Player> getAllPlayers() {
         return allPlayers;
     }
-
+    
+    public Player getPlayer(int player){
+        switch (player){
+            case 1:
+                return p1;
+            case 2:
+                return p2;
+            default:
+                return new Player();
+                        
+        }
+    }
+    
+    public List<AgesCard> getPlayerSector(int player, int sector){
+        return getPlayer(player).getSector(sector);
+    }
     public int get當前時代() {
         return 當前時代;
     }

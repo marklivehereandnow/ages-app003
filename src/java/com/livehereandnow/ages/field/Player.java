@@ -5,11 +5,16 @@
  */
 package com.livehereandnow.ages.field;
 
+import com.livehereandnow.ages.Sector;
 import com.livehereandnow.ages.card.AgesCard;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+
+    Player() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 //    private List<AgesCard> 行政牌暫存區;
 
     public void moveOneCard(List<AgesCard> from, int index, List<AgesCard> to) {
@@ -135,25 +140,33 @@ public class Player {
     public List<AgesCard> get領袖區() {
         return 領袖區;
     }
-public List<AgesCard> getOnTable() {
-    List<AgesCard> onTable;
-    onTable=new ArrayList<>();
-    onTable.addAll(政府區);
-    onTable.addAll(領袖區);
-    onTable.addAll(建造中的奇蹟區);
-    
-    onTable.addAll(實驗室);
-    onTable.addAll(神廟區);
-    onTable.addAll(農場區);
-    onTable.addAll(礦山區);
-    onTable.addAll(步兵區);
-    
-    
-    
-    return onTable;
-   
 
-}
+    public List<AgesCard> getOnTable() {
+        List<AgesCard> onTable;
+        onTable = new ArrayList<>();
+        onTable.addAll(政府區);
+        onTable.addAll(領袖區);
+        onTable.addAll(建造中的奇蹟區);
+
+        onTable.addAll(實驗室);
+        onTable.addAll(神廟區);
+        onTable.addAll(農場區);
+        onTable.addAll(礦山區);
+        onTable.addAll(步兵區);
+        onTable.addAll(已完成的奇蹟);
+        onTable.addAll(劇院區);
+        onTable.addAll(圖書館區);
+        onTable.addAll(殖民領土區);
+        onTable.addAll(炮兵區);
+        onTable.addAll(特殊科技區);
+        onTable.addAll(競技場區);
+        onTable.addAll(飛機區);
+        onTable.addAll(騎兵區);
+        onTable.addAll(未分類區);
+
+        return onTable;
+
+    }
 
     public List<AgesCard> get政府區() {
         return 政府區;
@@ -189,6 +202,59 @@ public List<AgesCard> getOnTable() {
 
     public void set騎兵區(List<AgesCard> 騎兵區) {
         this.騎兵區 = 騎兵區;
+    }
+
+//       onTable.addAll(政府區);
+//    onTable.addAll(領袖區);
+//    onTable.addAll(建造中的奇蹟區);
+//    
+//    onTable.addAll(實驗室);
+//    onTable.addAll(神廟區);
+    public List<AgesCard> getSector(int k) {
+        switch (k) {
+            case Sector.政府區:
+                return 政府區;
+            case Sector.領袖區:
+                return 領袖區;
+            case Sector.建造中的奇蹟區:
+                return 建造中的奇蹟區;
+            case Sector.實驗室:
+                return 實驗室;
+            case Sector.神廟區:
+                return 神廟區;
+            case Sector.農場區:
+                return 農場區;
+            case Sector.礦山區:
+                return 礦山區;
+            case Sector.步兵區:
+                return 步兵區;
+            case Sector.已完成的奇蹟:
+                return 已完成的奇蹟;
+            case Sector.劇院區:
+                return 劇院區;
+            case Sector.圖書館區:
+                return 圖書館區;
+            case Sector.殖民領土區:
+                return 殖民領土區;
+                
+            case Sector.炮兵區:
+                return 炮兵區;
+            case Sector.特殊科技區:
+                return 特殊科技區;
+            case Sector.競技場區:
+                return 競技場區;
+            case Sector.飛機區:
+                return 飛機區;
+            case Sector.騎兵區:
+                return 騎兵區;
+            case Sector.未分類區:
+                return 未分類區;
+                
+                
+
+            default:
+                return null;
+        }
     }
 
     public List<AgesCard> get炮兵區() {
@@ -408,7 +474,7 @@ public List<AgesCard> getOnTable() {
                                 System.out.println("錯誤的目標");
                                 break;
                         }
-                    
+
                     default:
                         System.out.println("待處理中");
                         break;
@@ -886,20 +952,20 @@ public List<AgesCard> getOnTable() {
 
     public void actActV1() {
         switch (get行動牌暫存區().get(0).getId()) {
-                    //富饒之土
-                    case 1027:
-                    case 1092:
-                    case 1171:
-                    case 1243:
-                        System.out.println("處理藝術作品");
-                        System.out.println(文化);
-                        this.文化.addPoints(6-get行動牌暫存區().get(0).getAge());
-                        System.out.println(文化);
-                        get行動牌暫存區().remove(0);
-                        break;
-                    default:
-                        System.out.println("使用方式不正確");
-                        break;
+            //富饒之土
+            case 1027:
+            case 1092:
+            case 1171:
+            case 1243:
+                System.out.println("處理藝術作品");
+                System.out.println(文化);
+                this.文化.addPoints(6 - get行動牌暫存區().get(0).getAge());
+                System.out.println(文化);
+                get行動牌暫存區().remove(0);
+                break;
+            default:
+                System.out.println("使用方式不正確");
+                break;
         }
     }
 
