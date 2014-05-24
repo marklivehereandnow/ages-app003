@@ -250,10 +250,26 @@
                                     </c:forEach>
                                 </h:panelGrid>
                             </td>
+
                         </tr>
 
 
                     </table>
+                    <table>
+                        
+                        <tr>
+                            <td>已完成的奇蹟</td>
+                        </tr><tr>
+                            <td>
+                                <h:panelGrid  columns="13" cellpadding="0">
+                                    <c:forEach  var="zzz" items="#{basicView.engine.getPlayerSector(1,8)}">
+                                        <h:commandButton title="黃:#{zzz.tokenYellow} 藍#{zzz.tokenBlue}" action="#{basicView.doNOTHING(zzz.seq)}" image="#{basicView.imgBaseDir}#{zzz.id}#{basicView.imgExt}" >
+                                            <f:ajax render="@this" />
+                                        </h:commandButton>    
+                                    </c:forEach>
+                                </h:panelGrid>
+                            </td>
+                        </tr></table>
 
 
                 </p:tab>
