@@ -201,7 +201,7 @@
                             <td>
                                 <h:panelGrid  columns="13" cellpadding="0">
                                     <c:forEach  var="zzz" items="#{basicView.playerAAA實驗室}">
-                                        
+
                                         <h:commandButton title="黃:#{zzz.tokenYellow} 藍#{zzz.tokenBlue}" action="#{basicView.doNOTHING(zzz.seq)}" image="#{basicView.imgBaseDir}#{zzz.id}#{basicView.imgExt}" >
                                             <f:ajax render="@this" />
                                         </h:commandButton>    
@@ -269,6 +269,57 @@
 
                 </p:tab>
 
+                <p:tab title="Data">
+                    <div  style="float:left; width:47%">
+
+
+                        <h2>AAA Desktop</h2>
+                        <p:dataTable var="car" value="#{basicView.playerAAAOnTable}">
+                            <p:column headerText="Tag">
+                                <h:outputText value="#{car.tag}" />
+                            </p:column>
+                            <p:column headerText="Age">
+                                <h:outputText value="#{car.ageStr}" />
+                            </p:column>
+
+                            <p:column headerText="ID/Name">
+                                <h:outputText value="#{car.id} #{car.name}" />
+                            </p:column>
+
+                            <p:column headerText="Yellow"> 
+                                <h:outputText value="#{car.tokenYellow}" />
+                            </p:column>
+
+                            <p:column headerText="Blue">
+                                <h:outputText value="#{car.tokenBlue}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+
+                    <div  style="float:right;  width:47%">
+                        <h2>BBB Desktop</h2>
+                        <p:dataTable var="car" value="#{basicView.playerBBBOnTable}">
+                            <p:column headerText="Tag">
+                                <h:outputText value="#{car.tag}" />
+                            </p:column>
+                            <p:column headerText="Age">
+                                <h:outputText value="#{car.ageStr}" />
+                            </p:column>
+
+                            <p:column headerText="ID/Name">
+                                <h:outputText value="#{car.id} #{car.name}" />
+                            </p:column>
+
+                            <p:column headerText="Yellow"> 
+                                <h:outputText value="#{car.tokenYellow}" />
+                            </p:column>
+
+                            <p:column headerText="Blue">
+                                <h:outputText value="#{car.tokenBlue}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </p:tab>
             </p:tabView>
 
         </h:form>

@@ -135,6 +135,25 @@ public class Player {
     public List<AgesCard> get領袖區() {
         return 領袖區;
     }
+public List<AgesCard> getOnTable() {
+    List<AgesCard> onTable;
+    onTable=new ArrayList<>();
+    onTable.addAll(政府區);
+    onTable.addAll(領袖區);
+    onTable.addAll(建造中的奇蹟區);
+    
+    onTable.addAll(實驗室);
+    onTable.addAll(神廟區);
+    onTable.addAll(農場區);
+    onTable.addAll(礦山區);
+    onTable.addAll(步兵區);
+    
+    
+    
+    return onTable;
+   
+
+}
 
     public List<AgesCard> get政府區() {
         return 政府區;

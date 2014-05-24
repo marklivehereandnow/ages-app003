@@ -299,6 +299,11 @@ public class AgesCard implements Serializable {
     public void setId(int id) {
         this.id = id;
     }
+     public String getAgeStr() {
+        String strAge[] = {"A", "I", "II", "III", "IV"};
+        return strAge[age];
+    }
+
 
     public String getName() {
         return name;

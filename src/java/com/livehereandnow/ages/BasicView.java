@@ -29,6 +29,11 @@ public class BasicView {
         this.militaryCardOption = militaryCardOption;
     }
 
+    public String getAgeStr(int age) {
+        String strAge[] = {"A", "I", "II", "III", "IV"};
+        return strAge[age];
+    }
+
     public String getCurrentAge() {
         String strAge[] = {"A", "I", "II", "III", "IV"};
         return strAge[engine.getField().get當前時代()];
@@ -80,7 +85,7 @@ public class BasicView {
     }
 
     public List<AgesCard> getSector時代軍事牌() {
-        
+
         switch (this.getCurrentAge()) {
             case "I":
                 return this.getSector時代I軍事牌();
@@ -101,6 +106,10 @@ public class BasicView {
         return engine.getField().getP1().get政府區();
     }
 
+    public List<AgesCard> getPlayerBBB政府區() {
+        return engine.getField().getP2().get政府區();
+    }
+
     public List<AgesCard> getPlayerAAA領袖區() {
         return engine.getField().getP1().get領袖區();
     }
@@ -111,6 +120,14 @@ public class BasicView {
 
     public List<AgesCard> getPlayerAAA實驗室() {
         return engine.getField().getP1().get實驗室();
+    }
+
+    public List<AgesCard> getPlayerAAAOnTable() {
+        return engine.getField().getP1().getOnTable();
+    }
+
+    public List<AgesCard> getPlayerBBBOnTable() {
+        return engine.getField().getP2().getOnTable();
     }
 
     public List<AgesCard> getPlayerAAA神廟區() {
