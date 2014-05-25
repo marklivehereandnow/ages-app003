@@ -8,6 +8,7 @@ import com.livehereandnow.ages.field.Player;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -20,6 +21,37 @@ public class BasicView {
     private String debug;
     private int counter;
     private String militaryCardOption;
+
+   
+
+    public Map<String, Integer> getPlayerScore(int player) {
+        if (player == 1) {
+            return engine.getField().getP1().getScore().getMap();
+        }
+        if (player == 2) {
+            return engine.getField().getP2().getScore().getMap();
+        }
+        return null;
+    }
+ public Map<Integer, Integer> getPlayerTokens黃(int player) {
+        if (player == 1) {
+            return engine.getField().getP1().getToken黃().getMap();
+        }
+        if (player == 2) {
+            return engine.getField().getP2().getToken黃().getMap();
+        }
+        return null;
+    }
+
+    public Map<Integer, Integer> getPlayerTokens藍(int player) {
+        if (player == 1) {
+            return engine.getField().getP1().getToken藍().getMap();
+        }
+        if (player == 2) {
+            return engine.getField().getP2().getToken藍().getMap();
+        }
+        return null;
+    }
 
     public String getMilitaryCardOption() {
         return militaryCardOption;

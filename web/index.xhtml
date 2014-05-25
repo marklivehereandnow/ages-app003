@@ -372,6 +372,53 @@
                         </p:dataTable>
                     </div>
                 </p:tab>
+
+                <p:tab title="Yellow and Blue Tokens">
+                    <div  style="float:left; width:47%">
+
+
+                        <h2>AAA Yellow and Blue Tokens</h2>
+
+                        <p:dataTable var="car" value="#{basicView.getPlayerScore(1)}">
+                            <p:column headerText="Scores">
+                                <h:outputText value="#{car}" />
+                            </p:column>
+                        </p:dataTable>
+
+                        <p:dataTable var="car" value="#{basicView.getPlayerTokens黃(1)}">
+                            <p:column headerText="Tokens黃">
+                                <h:outputText value="#{car}" />
+                            </p:column>
+                        </p:dataTable>
+                        <p:dataTable var="car" value="#{basicView.getPlayerTokens藍(1)}">
+                            <p:column headerText="Tokens藍">
+                                <h:outputText value="#{car}" />
+                            </p:column>
+                        </p:dataTable>
+
+                    </div>
+
+                    <div  style="float:right;  width:47%">
+                        <h2>BBB Yellow and Blue Tokens</h2>
+                        <p:dataTable var="car" value="#{basicView.getPlayerScore(2)}">
+                            <p:column headerText="Scores">
+                                <h:outputText value="#{car}" />
+                            </p:column>
+                        </p:dataTable>
+
+                        <p:dataTable var="car" value="#{basicView.getPlayerTokens黃(2)}">
+                            <p:column headerText="Tokens黃">
+                                <h:outputText value="#{car}" />
+                            </p:column>
+                        </p:dataTable>
+                        <p:dataTable var="car" value="#{basicView.getPlayerTokens藍(2)}">
+                            <p:column headerText="Tokens藍">
+                                <h:outputText value="#{car}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </p:tab>
+
             </p:tabView>
 
         </h:form>

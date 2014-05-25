@@ -8,12 +8,30 @@ package com.livehereandnow.ages.field;
 import com.livehereandnow.ages.Sector;
 import com.livehereandnow.ages.card.AgesCard;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Player {
 
+    Score score;
+    Token token黃;
+    Token token藍;
+
+    final int 人力庫_黃 = 1;
+    final int 工人區_黃 = 2;
+    final int 資源庫_藍 = 3;
+
+    public Token getToken黃() {
+        return token黃;
+    }
+
+    public Token getToken藍() {
+        return token藍;
+    }
+
     Player() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 //    private List<AgesCard> 行政牌暫存區;
 
@@ -78,6 +96,18 @@ public class Player {
         produce礦山();
         produce科技();
         produce農場();
+
+        //
+        //
+        //
+        Iterator iterator = token黃.getMap().entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<Integer, Integer> entry = (Map.Entry<Integer, Integer>) iterator.next();
+            if (entry.getKey() > 1000) {
+                System.out.println(" K:" + entry.getKey() + " V:" + entry.getValue());
+                token藍.moveTokensFromAtoB(entry.getValue(), 資源庫_藍, entry.getKey());
+            }
+        }
 
     }
 
@@ -357,6 +387,8 @@ public class Player {
     }
 
     public Player(String str) {
+        this.token藍 = new Token();
+        this.token黃 = new Token();
         name = str;
         init();
     }
@@ -573,7 +605,37 @@ public class Player {
     private List<AgesCard> 行動牌區;
     private List<AgesCard> 手牌軍事牌區;
 
+    public Score getScore() {
+        return score;
+    }
+
     public void init() {
+        score = new Score();
+        score.getMap().put("內政點數", 0);
+        score.getMap().put("軍事點數", 0);
+        score.getMap().put("建築上限", 0);
+        score.getMap().put("內政手牌上限", 0);
+        score.getMap().put("軍事手牌上限", 0);
+        score.getMap().put("殖民點數", 0);
+        score.getMap().put("文化", 0);
+        score.getMap().put("文化﹝＋﹞", 0);
+        score.getMap().put("科技", 0);
+        score.getMap().put("科技﹝＋﹞", 0);
+        score.getMap().put("軍力", 0);
+        score.getMap().put("笑臉", 0);
+
+        this.token藍 = new Token();
+        this.token黃 = new Token();
+
+        token黃.getMap().put(1010, 1);
+        token黃.getMap().put(1007, 2);
+        token黃.getMap().put(1032, 2);
+        token黃.getMap().put(1018, 1);
+        token黃.getMap().put(2, 1);
+        token黃.getMap().put(1, 18);
+
+        token藍.getMap().put(3, 18);
+
         內政點數 = new Points("內政點數");
         軍事點數 = new Points("軍事點數");
 
